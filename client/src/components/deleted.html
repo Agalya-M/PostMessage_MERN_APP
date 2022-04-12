@@ -1,0 +1,38 @@
+<form >
+<div>
+    <input onChange={(e)=>setData({...data,title:e.target.value})} className='w-100 h-30 py-3 px-10 items-center text-left mt-5 bg-slate-300 ' placeholder='Title'/><br/>
+</div>
+<div>
+    <input  onChange={(e)=>setData({...data,message:e.target.value})} className='w-100 h-30 py-3 px-10  items-center text-left mt-5 bg-slate-300 ' placeholder='Message'/>
+</div>
+<div className='items-center px-20 justify-center '>
+<button className='w-20 h-30 mt-10 py-3 items-center  bg-slate-700 text-white' onClick={handleSubmit}>Submit</button>
+</div>
+
+
+</form>
+
+
+
+<h2>{getdatabyredux}</h2>
+      
+{
+  resdata.map((data,_id)=>{
+        return(
+          <>
+           <div>
+      <input value={data.title} className='w-100 h-30 py-3 px-10 mx-10 items-center text-left mt-5 bg-slate-300 ' placeholder='Title'/><br/>
+    </div>
+    <div>
+      <input  value={data.message} className='w-100 h-30 py-3 px-10 mx-10 items-center text-left mt-5 bg-slate-300 ' placeholder='Message'/>
+    </div>
+    <div className='w-full flex justify-around mt-6'>
+      <button className='w-20 h-10 bg-slate-600 '>Update</button>
+      <button className='w-20 h-10 bg-slate-600 ' onClick={postDelete(data.id)}>Delete</button>
+
+    </div>
+          </>
+         
+        )
+  })
+}
